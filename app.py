@@ -21,8 +21,12 @@ Age = st.slider("Age", 1, 120, 33)
 
 # Predict button
 if st.button("Predict"):
-    input_data = np.array([[Pregnancies, Glucose, BloodPressure, SkinThickness,
-                            Insulin, BMI, DiabetesPedigreeFunction, Age]])
+    import numpy as np
+
+# Example assuming 8 input values
+input_data = np.array([[pregnancies, glucose, blood_pressure, skin_thickness,
+                        insulin, bmi, diabetes_pedigree_function, age]])
+
     prediction = model.predict(input_data)
     if prediction[0] == 1:
         st.error("You are likely to have diabetes.")
